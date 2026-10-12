@@ -19,7 +19,7 @@
 
 / {
     chosen {
-        zmk,kscan = &kscan_composite;
+        zmk,kscan = &kscan_matrix;
         zmk,physical-layout = &splitkb_halcyon_elora_hlc;
     };
 
@@ -30,9 +30,9 @@
 
     kscan_composite: kscan_composite {
         compatible = "zmk,kscan-composite";
+	status = "disabled";
         rows = <6>;
         columns = <14>;
-        wakeup-source;
 
         matrix {
             kscan = <&kscan_matrix>;
@@ -69,6 +69,7 @@
 
     kscan_halcyon: kscan_halcyon_0 {
         compatible = "zmk,kscan-gpio-direct";
+	status = "disabled";
         input-gpios = <&halcyon_conn 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // NC PIN
     };
 
